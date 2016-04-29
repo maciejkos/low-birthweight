@@ -1,0 +1,122 @@
+body
+{
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+    color: hsla(0, 10%, 10%, 1.0);
+    margin: 2em;
+    height:1500px;
+}
+
+.container
+{
+    width:80%;
+    margin-left: 10%;
+    height:650px;
+
+}
+
+#scene-1{background:darkseagreen;}
+
+#scene-2{background:blue;}
+
+#scene-3{background:yellow;}
+
+h1
+{
+    text-align: center;
+    margin-top: 300px;
+}
+
+#text,
+#canvas
+{
+    margin-top: 150px;
+    width:49%;
+    height:400px;
+    float: left;
+    /*border-style: dotted;*/
+    /*color:black;*/
+}
+h3{
+    text-align: left;
+    font-weight: 200;
+    margin-top: 120px;
+    line-height: 200%;
+}
+
+
+
+/*set up the plot on the right*/
+#canvas{
+    float:right;
+    margin-top: 10%;
+    /*border-style: dotted;*/
+    /*color:black;*/
+}
+
+
+.plot
+{
+    width:48%;
+    height:80%;
+    float: left;
+    /*border-style: dotted;*/
+    /*color:black;*/
+}
+/*.percentage{*/
+    /*width:50%;*/
+    /*background-color: #31708f;*/
+/*}*/
+.label
+{
+
+    float:left;
+    width:48%;
+    margin-bottom: 20%;
+    height:20%;
+    /*border-style: dotted;*/
+    /*color:black;*/
+}
+
+h4{
+    margin-left:54%;
+}
+
+
+
+
+.active1{
+    position:fixed;
+    /*background-color: antiquewhite;*/
+    /*height:100px;*/
+    top:0;
+    left:0;
+    z-index:9999;
+}
+#vis1{
+    width:80%;
+    margin-left: 10%;
+    height:200px;
+    /*position:relative*/
+    z-index:9999;
+    top:0;
+    left:0;
+}
+
+.active2{
+    position:fixed;
+    /*background-color: antiquewhite;*/
+    /*height:100px;*/
+    top:1000px;
+    left:0;
+    z-index:9999;
+}
+#vis2{
+    width:80%;
+    margin-left: 10%;
+    height:200px;
+    /*position:relative*/
+    z-index:9999;
+    top:0;
+    left:0;
+}

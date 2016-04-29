@@ -1,0 +1,186 @@
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+    padding:0;
+    margin:0;
+    /*color: hsla(0, 10%, 10%, 1.0);*/
+    /*margin: 2em;*/
+    /*height:1500px;*/
+}
+.left{
+    /*background-color: lightgrey;*/
+    position:fixed;
+    visibility: hidden;
+    float: left;
+    left:0;
+    width:50%;
+    /*height:100%;*/
+}
+
+.right{
+    padding:0;
+    margin-left:50%;
+    height:700px;
+    width:50%;
+    /*margin-left:50%;*/
+}
+.intro{
+    /*background-color: #d9edf7;*/
+    height:650px;
+    width:100%;
+}
+
+/*#scene-1{background-color:darkseagreen;}*/
+/*#scene-2{background:blue;}*/
+/*#scene-3{background:yellow;}*/
+/*#scene-4{background:rosybrown;}*/
+
+/*set density plot*/
+.chart{
+    margin-left:10%;
+    margin-top:20%;
+    height:40%;
+}
+/*set two dots plot*/
+.plotBlack{
+    float:left;
+    width:50%;
+}
+.plotWhite{
+    float:right;
+    width:50%;
+}
+/*set up text*/
+h1{
+    position: relative;
+    margin-left: 15%;
+    top:38%;
+    /*width:50%;*/
+    /*left:5%;*/
+    /*text-align: center;*/
+    font-size: 12px;
+    font-weight: 200;
+}
+
+
+
+
+
+
+
+.active1{
+    visibility: visible;
+    /*position:fixed;*/
+    /*background-color: green;*/
+    top:0;
+    z-index:9999;
+}
+
+.active2{
+    visibility: visible;
+    /*position:fixed;*/
+    /*background-color: brown;*/
+    top:0;
+    z-index:9999;
+}
+
+.active3{
+    visibility: visible;
+    /*position:fixed;*/
+    /*background-color: brown;*/
+    top:0;
+    z-index:9999;
+}
+
+.active4{
+    visibility: visible;
+    /*position:fixed;*/
+    /*background-color: brown;*/
+    top:0;
+    z-index:9999;
+}
+
+.active5{
+    visibility: visible;
+    /*position:fixed;*/
+    /*background-color: brown;*/
+    top:0;
+    z-index:9999;
+}
+
+.active6{
+    visibility: visible;
+    /*position:fixed;*/
+    /*background-color: brown;*/
+    top:0;
+    z-index:9999;
+}
+
+
+
+/*.area0-update{*/
+    /*color: steelblue;*/
+    /*opacity:0.5;*/
+/*}*/
+
+/*.area1-update{*/
+    /*color: yellowgreen;*/
+    /*opacity:0.5;*/
+
+/*}*/
+.line0-update{
+
+}
+.line1-update{
+
+}
+
+.area0 {
+    fill: grey;
+    opacity: 0.5;
+}
+.area1 {
+    fill: #ff1f29;
+    opacity: 0.5;
+}
+
+.line0 {
+    stroke: grey;
+    opacity: 0.5;
+    /*border-style:dotted;*/
+    stroke-width: 30 px;
+}
+
+.line1 {
+    stroke: #ff1f29;
+    opacity: 0.5;
+    /*border-style:dotted;*/
+    stroke-width: 30 px;
+}
+
+.legendred,.legendgrey {
+    /*stroke: red;*/
+    opacity: 0.3;
+    /*border-style:dotted;*/
+    /*stroke-width: 30 px;*/
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.y.axis path {
+    display: none;
+}
+.axis-y text{
+    fill:rgb(80,80,80);
+    font-size:0.6em;
+}
+
+.axis-x text{
+    fill:rgb(80,80,80);
+    font-size:0.8em;
+}
