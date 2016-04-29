@@ -142,7 +142,7 @@ d3.densityPlotNoLines = function(){
         // description of the x axis
         legend
             .append("text")
-            .attr("x", chartW/5)
+            .attr("x", chartW/10)
             .attr("y", chartH*1.5)
             .text("weight in grams")
             .style("font-size","6px");
