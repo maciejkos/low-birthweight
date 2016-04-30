@@ -86,7 +86,6 @@ d3.cycleModuleSuper = function () {
         function one() {
             ctx.fillText("LOW", divWidth / 2, divWidth / 3.3 - yMoveUp);
             ctx.fillText("INCOME", divWidth / 2 - divWidth / 80, divWidth / 3.1 - yMoveUp);
-            console.log("drawing one!");
         }
 
         function two() {
@@ -179,7 +178,6 @@ d3.cycleModuleSuper = function () {
         }
         globalDispatch.on('showOne',function(ext){
             one();
-            console.log("in dispatch 1");
         });
 
         globalDispatch.on('showTwo',function(ext){

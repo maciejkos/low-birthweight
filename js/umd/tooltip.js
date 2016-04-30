@@ -1,6 +1,6 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', 'module', './util'], factory);
+    define(['exports', 'modules', './util'], factory);
   } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
     factory(exports, module, require('./util'));
   } else {

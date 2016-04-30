@@ -1,6 +1,6 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', 'module', './tooltip'], factory);
+    define(['exports', 'modules', './tooltip'], factory);
   } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
     factory(exports, module, require('./tooltip'));
   } else {

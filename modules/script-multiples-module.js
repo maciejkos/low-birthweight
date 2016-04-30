@@ -66,7 +66,6 @@ d3.multiples = function () {
     }
 
     function draw() {
-        console.log("draw");
         svg = d3.select(this).append("svg")
             .attr("width", chartW)
             .attr("height", chartH)

@@ -3,7 +3,7 @@
  */
 
 // new update feature
-// the module now removes vertical lines when updated
+// the modules now removes vertical lines when updated
 
 //// new update function
 // put this on top of your on('enter...) function
