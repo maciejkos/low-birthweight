@@ -147,21 +147,24 @@ d3.densityPlot = function(){
             .attr("opacity",0.5);
 
         legend
+            .attr("transform","translate(400,-10)");
+
+        plot_main
             .append("text")
-            .attr("x", 50)
-            .attr("y", 153)
+            .attr("text-anchor", "middle")
+            .attr("x", scaleX(5000))
+            .attr("y", chartH - chartH/15)
             .text("weight")
             .style("font-size","6px");
 
-        legend
+        plot_main
             .append("text")
-            .attr("x", 50)
-            .attr("y", 160)
+            .attr("text-anchor", "middle")
+            .attr("x", scaleX(5000))
+            .attr("y", chartH - chartH/40)
+            //.attr("y", 160)
             .text("(grams)")
             .style("font-size","6px");
-
-        legend
-            .attr("transform","translate(400,-10)");
 
         var axisX = d3.svg.axis()
             .orient('bottom')
