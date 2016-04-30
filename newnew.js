@@ -181,8 +181,8 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
 
              console.log("enter plot")
             var densityPlotModule = d3.densityPlotWithUpdate()
-                .variable0("Children of Black Mothers")
-                .variable1("Children of White Mothers")
+                .variable0("Children of black mothers")
+                .variable1("Children of white mothers")
                 .width(w * 3 / 2).height(h * 3 / 2);
 
 

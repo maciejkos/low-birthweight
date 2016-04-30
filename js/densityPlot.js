@@ -136,7 +136,7 @@ d3.densityPlot = function(){
             .attr("y", 8)
             .text(variable0)
             .attr("fill","grey")
-            .attr("opacity",0.5);
+            .attr("opacity",0.9);
 
         legend
             .append("text")
@@ -144,7 +144,7 @@ d3.densityPlot = function(){
             .attr("y", 23)
             .text(variable1)
             .attr("fill", "red")
-            .attr("opacity",0.5);
+            .attr("opacity",0.9);
 
         legend
             .attr("transform","translate(400,-10)");

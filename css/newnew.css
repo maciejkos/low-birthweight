@@ -848,7 +848,7 @@ h6
 
 .legendred,.legendgrey {
     /*stroke: red;*/
-    opacity: 0.5;
+    opacity: 1;
     font-size:0.4em;
 
 }
