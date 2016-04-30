@@ -1,5 +1,5 @@
 /**
- * Created by KiniLuo on 4/10/16.
+ * Modularized by KiniLuo on 4/10/16 based on my dotsplot.
  */
 
 
@@ -22,7 +22,6 @@ d3.dotsDraw = function ()
         //h=350;
         _selection.each(draw);
     }
-
 
 
     //draw function

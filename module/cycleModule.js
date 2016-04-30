@@ -1,3 +1,7 @@
+/**
+ * Created by Maciej on 4/21/2016.
+ */
+
 // JINNI - this is an example of what you could paste in your scroll
 
 //.on('enter', function (e) {
@@ -58,7 +62,7 @@ d3.cycleModuleSuper = function () {
         chartW = w - m.l - m.r,
             chartH = h - m.t - m.b;
         //
-        divWidth = chartW;
+        divWidth = chartW/1.5;
 
         _selection.each(draw);
     }
