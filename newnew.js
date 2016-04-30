@@ -3,129 +3,121 @@
  */
 var margin = {t: 20, r: 20, b: 20, l: 50};
 var w = d3.select('.right').node().clientWidth - margin.l - margin.r,
-    h = d3.select('.right').node().clientHeight/3 - margin.t - margin.b;
+    h = d3.select('.right').node().clientHeight / 3 - margin.t - margin.b;
 
 //set up density plot
 
 var chart = d3.select(".left")
     .append('svg')
     .attr('class', 'chart')
-    .attr('width', w+70)
-    .attr('height', h+40);
+    .attr('width', w + 70)
+    .attr('height', h + 40);
 
 //set up dots
-var  dotsBlack=d3.select(".left").append("svg")
-    .attr("class","plotBlack")
+var dotsBlack = d3.select(".left").append("svg")
+    .attr("class", "plotBlack")
     .attr('width', w)
     .attr('height', h);
 
-var dotsWhite=d3.select('.left').append("svg")
-    .attr("class","plotWhite")
+var dotsWhite = d3.select('.left').append("svg")
+    .attr("class", "plotWhite")
     .attr('width', w)
     .attr('height', h);
 
 
 //Opening page
-    var controllerIntro = new ScrollMagic.Controller();
+var controllerIntro = new ScrollMagic.Controller();
 
 
+var because = new ScrollMagic.Scene({
+    //specifies options for the scene
+    triggerElement: "#because",
+    duration: 4300,
+    triggerHook: 0,
+    offset: 0
+})
 
-    var because = new ScrollMagic.Scene({
-        //specifies options for the scene
-        triggerElement: "#because",
-        duration: 4300,
-        triggerHook: 0,
-        offset: 0
+    .setClassToggle(".visBecause", "introactiveBecause") // add class toggle
+    //.addIndicators({name:"becasue"}) // add indicators (requires plugin)
+    .addTo(controllerIntro)
+    .on('enter', function (e) {
+        $(".plot").remove();
+        d3.select(".introactiveBecause").transition().duration(500).attr("style", "opacity: 1;");
     })
-
-        .setClassToggle(".visBecause", "introactiveBecause") // add class toggle
-        //.addIndicators({name:"becasue"}) // add indicators (requires plugin)
-        .addTo(controllerIntro)
-        .on('enter', function (e) {
-            console.log("draw");
-            d3.select(".introactiveBecause").transition().duration(500).attr("style", "opacity: 1;");
-        })
-        .on("leave",function(e){
-            console.log("leave intro");
-            d3.select(".visBecause").transition().duration(500).attr("style", "opacity: 0;");
-        });
+    .on("leave", function (e) {
+        d3.select(".visBecause").transition().duration(500).attr("style", "opacity: 0;");
+    });
 
 
-
-    var physical = new ScrollMagic.Scene({
-        //specifies options for the scene
-        triggerElement: "#physical",
-        duration: 3400,
-        triggerHook: 0,
-        offset: 0
+var physical = new ScrollMagic.Scene({
+    //specifies options for the scene
+    triggerElement: "#physical",
+    duration: 3400,
+    triggerHook: 0,
+    offset: 0
+})
+//.setTween('#introactive1', 0.5, {opacity: 1})
+    .setClassToggle(".vis1", "introactive1") // add class toggle
+    //.addIndicators({name:"physical"}) // add indicators (requires plugin)
+    .addTo(controllerIntro)
+    .on('enter', function (e) {
+        d3.select(".introactive1").transition().duration(500).attr("style", "opacity: 1;");
     })
-        //.setTween('#introactive1', 0.5, {opacity: 1})
-        .setClassToggle(".vis1", "introactive1") // add class toggle
-        //.addIndicators({name:"physical"}) // add indicators (requires plugin)
-        .addTo(controllerIntro)
-        .on('enter', function (e) {
-            console.log("draw");
-            d3.select(".introactive1").transition().duration(500).attr("style", "opacity: 1;");
-        })
-        .on("leave",function(e){
-            console.log("leave");
-            d3.select(".vis1").transition().duration(500).attr("style", "opacity: 0;");
-        });
+    .on("leave", function (e) {
+        d3.select(".vis1").transition().duration(500).attr("style", "opacity: 0;");
+    });
 
-    var mental = new ScrollMagic.Scene({
-        //specifies options for the scene
-        triggerElement: "#mental",
-        duration: 2500,
-        triggerHook: 0,
-        offset: 0})
-        .setClassToggle(".vis2", "introactive2") // add class toggle
-        //.addIndicators({name:"mental"}) // add indicators (requires plugin)
-        .addTo(controllerIntro)
-        .on('enter', function (e) {
-            d3.select(".introactive2").transition().duration(500).attr("style", "opacity: 1;");
-        })
-        .on("leave",function(e){
-            console.log("leave");
-            d3.select(".vis2").transition().duration(500).attr("style", "opacity: 0;");
-        });
+var mental = new ScrollMagic.Scene({
+    //specifies options for the scene
+    triggerElement: "#mental",
+    duration: 2500,
+    triggerHook: 0,
+    offset: 0
+})
+    .setClassToggle(".vis2", "introactive2") // add class toggle
+    //.addIndicators({name:"mental"}) // add indicators (requires plugin)
+    .addTo(controllerIntro)
+    .on('enter', function (e) {
+        d3.select(".introactive2").transition().duration(500).attr("style", "opacity: 1;");
+    })
+    .on("leave", function (e) {
+        d3.select(".vis2").transition().duration(500).attr("style", "opacity: 0;");
+    });
 
 
-    var education = new ScrollMagic.Scene({
-        //specifies options for the scene
-        triggerElement: "#education",
-        duration: 1600,
-        triggerHook: 0,
-        offset: 0})
-        .setClassToggle(".vis3", "introactive3") // add class toggle
-        //.addIndicators({name:"education"}) // add indicators (requires plugin)
-        .addTo(controllerIntro)
-        .on('enter', function (e) {
-            d3.select(".introactive3").transition().duration(500).attr("style", "opacity: 1;");
-        })
-        .on("leave",function(e){
-            console.log("leave");
-            d3.select(".vis3").transition().duration(500).attr("style", "opacity: 0;");
-        });
+var education = new ScrollMagic.Scene({
+    //specifies options for the scene
+    triggerElement: "#education",
+    duration: 1600,
+    triggerHook: 0,
+    offset: 0
+})
+    .setClassToggle(".vis3", "introactive3") // add class toggle
+    //.addIndicators({name:"education"}) // add indicators (requires plugin)
+    .addTo(controllerIntro)
+    .on('enter', function (e) {
+        d3.select(".introactive3").transition().duration(500).attr("style", "opacity: 1;");
+    })
+    .on("leave", function (e) {
+        d3.select(".vis3").transition().duration(500).attr("style", "opacity: 0;");
+    });
 
-    var social = new ScrollMagic.Scene({
-        //specifies options for the scene
-        triggerElement: "#social",
-        duration: 700,
-        triggerHook: 0,
-        offset: 0})
-        .setClassToggle(".vis4", "introactive4") // add class toggle
-        //.addIndicators({name:"social"}) // add indicators (requires plugin)
-        .addTo(controllerIntro)
-        .on('enter', function (e) {
-            d3.select(".introactive4").transition().duration(500).attr("style", "opacity: 1;");
-        })
-        .on("leave",function(e){
-            console.log("leave");
-            d3.select(".vis4").transition().duration(500).attr("style", "opacity: 0;");
-        });
-
-
-
+var social = new ScrollMagic.Scene({
+    //specifies options for the scene
+    triggerElement: "#social",
+    duration: 700,
+    triggerHook: 0,
+    offset: 0
+})
+    .setClassToggle(".vis4", "introactive4") // add class toggle
+    //.addIndicators({name:"social"}) // add indicators (requires plugin)
+    .addTo(controllerIntro)
+    .on('enter', function (e) {
+        d3.select(".introactive4").transition().duration(500).attr("style", "opacity: 1;");
+    })
+    .on("leave", function (e) {
+        d3.select(".vis4").transition().duration(500).attr("style", "opacity: 0;");
+    });
 
 
 queue()
@@ -139,9 +131,7 @@ queue()
     .await(dataLoaded);
 
 
-
-function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,densityWic,densityMed,densityPre)
-{
+function dataLoaded(err, densityBlack, densitySingle, densityEducation, densityTeen, densityWic, densityMed, densityPre) {
 
     //draw transition
     var controllerTrans = new ScrollMagic.Controller({
@@ -150,7 +140,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         }
     });
     var slides = document.querySelectorAll("section.transition");
-    for (var i=0; i<slides.length; i++) {
+    for (var i = 0; i < slides.length; i++) {
         new ScrollMagic.Scene({
             triggerElement: slides[i]
         })
@@ -160,26 +150,23 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
     }
 
 
-
-
-
     var controller = new ScrollMagic.Controller({
         //addIndicators: true
     });
 
     sceneVisited = 0;
-    globalDispatch = d3.dispatch('update',"downgrade");
+    globalDispatch = d3.dispatch('update', "downgrade");
     var updateOne = new ScrollMagic.Scene({
         triggerElement: "#one",
         duration: 700,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".updateplot", "activeupdate1") // add class toggle
-        .addIndicators({name:"updateOne"}) // add indicators (requires plugin)
+        .addIndicators({name: "updateOne"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-
-             console.log("enter plot")
+            $(".plot").remove();
             var densityPlotModule = d3.densityPlotWithUpdate()
                 .variable0("Children of black mothers")
                 .variable1("Children of white mothers")
@@ -207,7 +194,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             }
 
         })
-        .on("leave",function(e){
+        .on("leave", function (e) {
             $(".plot").remove();
             sceneVisited = 0;
         });
@@ -218,20 +205,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#one",
         duration: 700,
         triggerHook: 0,
-        offset:0
+        offset: 0
     })
         .setClassToggle(".updatetext1", "activeupdatetext1") // add class toggle
-        .addIndicators({name:"updatetext1"}) // add indicators (requires plugin)
+        .addIndicators({name: "updatetext1"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
 
-            //console.log("enter text 1");
-            //d3.select(".updatetext1").transition().duration(1000).attr("style", "opacity: 0;");
             d3.select(".activeupdatetext1").transition().duration(1000).attr("style", "opacity: 1;");
-            //globalDispatch.update();
         })
-        .on("leave",function(e){
-            console.log("leave text 1");
+        .on("leave", function (e) {
             d3.select(".updatetext1").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -241,28 +224,23 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#one",
         duration: 400,
         triggerHook: 0,
-        offset:300
+        offset: 300
     })
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".updatetext2", "activeupdatetext2") // add class toggle
-        .addIndicators({name:"updatetext2"}) // add indicators (requires plugin)
+        .addIndicators({name: "updatetext2"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("enter text two");
-
-            //d3.select(".updatetext1").transition().duration(1000).attr("style", "opacity: 0;");
             d3.select(".activeupdatetext2").transition().duration(1000).attr("style", "opacity: 1;");
             globalDispatch.update();
         })
-        .on("leave",function(e){
-            console.log("text2 leave");
+        .on("leave", function (e) {
             d3.select(".updatetext2").transition().duration(1000).attr("style", "opacity: 0;");
             direction = controller.info("scrollDirection");
             if (direction == "REVERSE") {
-                console.log("Downgrade? Well that's easy!");
+                //console.log("Downgrade? Well that's easy!");
                 globalDispatch.downgrade();
-            };
-
+            }
         });
 
     var updatText3 = new ScrollMagic.Scene({
@@ -270,23 +248,19 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#two",
         duration: 700,
         triggerHook: 0,
-        offset:0
+        offset: 0
     })
 
         .setClassToggle(".updatetext3", "activeupdatetext3") // add class toggle
-        .addIndicators({name:"updatetext3"}) // add indicators (requires plugin)
+        .addIndicators({name: "updatetext3"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
             sceneVisited = 1;
 
             d3.select(".activeupdatetext3").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave update3");
+        .on("leave", function (e) {
         });
-
-
-
 
 
 //small multiples
@@ -295,11 +269,11 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active13") // add class toggle
         //.addIndicators({name:"multiples"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".cycle").remove();
             $(".chart").remove();
@@ -311,21 +285,21 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .append('svg')
                 .attr('class', 'multiples')
                 .attr('width', w)
-                .attr('height', h*4);
+                .attr('height', h * 4);
 
 //marital
             var densityPlotModule1 = d3.densityPlotNoLines()
                 .variable0("Married")
                 .variable1("Single")
                 .Title("Marital status")
-                .width(w ).height(h/4 );
+                .width(w).height(h / 4);
 
             //draw density plot
-            var marital=multiples
+            var marital = multiples
                 .append('g')
                 .attr('class', 'multipleMarried')
                 .attr('width', w)
-                .attr('height', h/4)
+                .attr('height', h / 4)
                 .attr('transform', 'translate(' + -50 + ',' + 150 + ')');
 
 
@@ -334,19 +308,18 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .call(densityPlotModule1);
 
 
-
 //education
             var densityPlotModule2 = d3.densityPlotNoLines()
                 .variable0("College degree")
                 .variable1("No college degree")
                 .Title("College education")
-                .width(w ).height(h/4 );
+                .width(w).height(h / 4);
 
-            var education=multiples
+            var education = multiples
                 .append('g')
                 .attr('class', 'multipleEducation')
                 .attr('width', w)
-                .attr('height', h/4)
+                .attr('height', h / 4)
                 .attr('transform', 'translate(' + -50 + ',' + 240 + ')');
             education
                 .datum(densityEducation)
@@ -357,14 +330,14 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .variable0("Adult")
                 .variable1("Teen")
                 .Title("Teen pregnancy")
-                .width(w ).height(h/4 );
+                .width(w).height(h / 4);
 
-            var Teen=multiples
+            var Teen = multiples
                 .append('g')
                 .attr('class', 'multipleTeen')
                 .attr('width', w)
-                .attr('height', h/4)
-                .attr('transform', 'translate(' +-50 + ',' + 330 + ')');
+                .attr('height', h / 4)
+                .attr('transform', 'translate(' + -50 + ',' + 330 + ')');
             Teen
                 .datum(densityTeen)
                 .call(densityPlotModule3);
@@ -392,13 +365,13 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .variable0("Medicaid used")
                 .variable1("Medicaid not used")
                 .Title("Medicaid usage")
-                .width(w ).height(h/4 );
+                .width(w).height(h / 4);
 
-            var Med=multiples
+            var Med = multiples
                 .append('g')
                 .attr('class', 'multipleMed')
                 .attr('width', w)
-                .attr('height', h/4)
+                .attr('height', h / 4)
                 .attr('transform', 'translate(' + -50 + ',' + 420 + ')');
 
             Med
@@ -411,13 +384,13 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .variable0("Prenatal Care")
                 .variable1("No prenatal care")
                 .Title("Prenatal Care usage")
-                .width(w ).height(h/4 );
+                .width(w).height(h / 4);
 
-            var pre=multiples
+            var pre = multiples
                 .append('g')
                 .attr('class', 'multiplePre')
                 .attr('width', w)
-                .attr('height', h/4)
+                .attr('height', h / 4)
                 .attr('transform', 'translate(' + -50 + ',' + 510 + ')');
 
             pre
@@ -430,7 +403,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .append('svg')
                 .attr('class', 'multiplesTwo')
                 .attr('width', w)
-                .attr('height', h*4);
+                .attr('height', h * 4);
 //bar marital
             var maritalBars = d3.multiples()
                 .aHigh(77)
@@ -443,7 +416,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var maritalBarsPlot = d3.select(".multiplesTwo")// this is in HTML
                 .append("g")
                 .attr('class', 'barMarital')
-                .attr('transform', 'translate(' + 0 + ',' +110 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 110 + ')');
 
             maritalBarsPlot
                 .call(maritalBars);
@@ -460,7 +433,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var educationbarPlot = d3.select(".multiplesTwo") // this is in HTML
                 .append("g")
                 .attr('class', 'barEducation')
-                .attr('transform', 'translate(' + 0 + ',' +200 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 200 + ')');
 
             educationbarPlot
                 .call(educationBars);
@@ -477,7 +450,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var teenBarsPlot = d3.select(".multiplesTwo") // this is in HTML
                 .append("g")
                 .attr('class', 'barTeen')
-                .attr('transform', 'translate(' + 0 + ',' +290 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 290 + ')');
 
             teenBarsPlot
                 .call(teenBars);
@@ -513,7 +486,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var medBarsPlot = d3.select(".multiplesTwo") // this is in HTML
                 .append("g")
                 .attr('class', 'barMed')
-                .attr('transform', 'translate(' + 0 + ',' +380 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 380 + ')');
 
             medBarsPlot
                 .call(medBars);
@@ -531,7 +504,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var preBarsPlot = d3.select(".multiplesTwo") // this is in HTML
                 .append("g")
                 .attr('class', 'barPre')
-                .attr('transform', 'translate(' + 0 + ',' +470 + ')');
+                .attr('transform', 'translate(' + 0 + ',' + 470 + ')');
 
             preBarsPlot
                 .call(preBars);
@@ -539,27 +512,25 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
 
         })
         .addTo(controller)
-        .on("leave",function(e){
-            //console.log("leave");
+        .on("leave", function (e) {
             $(".multiples").remove();
             $(".multiplesTwo").remove();
 
         });
 
-    var multipleTitleText= new ScrollMagic.Scene({
-            triggerElement: "#scene",
-            duration: 1000,
-            triggerHook: 0,
-            offset: 0})
+    var multipleTitleText = new ScrollMagic.Scene({
+        triggerElement: "#scene",
+        duration: 1000,
+        triggerHook: 0,
+        offset: 0
+    })
         .setClassToggle(".smallMultipleText", "activeMultiple") // add class toggle
         //.addIndicators({name:"text1"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".activeMultiple").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".smallMultipleText").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -571,11 +542,11 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-1",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active1") // add class toggle
         //.addIndicators({name:"left1"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".desityBlack").remove();
             $(".densityEducation").remove();
@@ -585,16 +556,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var chart = d3.select(".left")
                 .append('svg')
                 .attr('class', 'chart')
-                .attr('width', w+70)
-                .attr('height', h+40);
+                .attr('width', w + 70)
+                .attr('height', h + 40);
 
-            var  dotsBlack=d3.select(".left").append("svg")
-                .attr("class","plotBlack")
+            var dotsBlack = d3.select(".left").append("svg")
+                .attr("class", "plotBlack")
                 .attr('width', w)
                 .attr('height', h);
 
-            var dotsWhite=d3.select('.left').append("svg")
-                .attr("class","plotWhite")
+            var dotsWhite = d3.select('.left').append("svg")
+                .attr("class", "plotWhite")
                 .attr('width', w)
                 .attr('height', h);
 
@@ -604,13 +575,13 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule1 = d3.densityPlot()
                 .variable0("Married")
                 .variable1("Single")
-                .width(w ).height(h*2/3 );
+                .width(w).height(h * 2 / 3);
 
             dotsBlack.append('g').attr('class', 'densityMarried').call(drawDots_1);
             dotsWhite.append('g').attr('class', 'densityMarried').call(drawDots_2);
 
             //draw density plot
-            var marital=chart
+            var marital = chart
                 .append('g')
                 .attr('class', 'densityMarried')
                 .attr('width', w)
@@ -622,7 +593,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .call(densityPlotModule1);
 
         })
-        .on("leave",function(e){
+        .on("leave", function (e) {
             $(".densityMarried").remove();
         })
         .addTo(controller);
@@ -636,16 +607,14 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerHook: 0,
         offset: 0
     })
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text1", "textactive1") // add class toggle
         //.addIndicators({name:"text1"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive1").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text1").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -654,17 +623,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-1",
         duration: 700,
         triggerHook: 0,
-        offset:300})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 300
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text2", "textactive2") // add class toggle
         //.addIndicators({name:"text2"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive2").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text2").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -674,21 +642,18 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-1",
         duration: 500,
         triggerHook: 0,
-        offset:500})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 500
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text3", "textactive3") // add class toggle
         //.addIndicators({name:"text3"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive3").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text3").transition().duration(1000).attr("style", "opacity: 0;");
         });
-
-
 
 
     //draw eduction
@@ -697,11 +662,11 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-2",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active2") // add class toggle
         //.addIndicators({name:"education"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
             //
             $(".chart").remove();
             $(".plotBlack").remove();
@@ -709,16 +674,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var chart = d3.select(".left")
                 .append('svg')
                 .attr('class', 'chart')
-                .attr('width', w+70)
-                .attr('height', h+40);
+                .attr('width', w + 70)
+                .attr('height', h + 40);
 
-            var  dotsBlack=d3.select(".left").append("svg")
-                .attr("class","plotBlack")
+            var dotsBlack = d3.select(".left").append("svg")
+                .attr("class", "plotBlack")
                 .attr('width', w)
                 .attr('height', h);
 
-            var dotsWhite=d3.select('.left').append("svg")
-                .attr("class","plotWhite")
+            var dotsWhite = d3.select('.left').append("svg")
+                .attr("class", "plotWhite")
                 .attr('width', w)
                 .attr('height', h);
 
@@ -731,9 +696,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule2 = d3.densityPlot()
                 .variable0("College degree")
                 .variable1("No college degree")
-                .width(w ).height(h*2/3 );
+                .width(w).height(h * 2 / 3);
 
-            var education=chart
+            var education = chart
                 .append('g')
                 .attr('class', 'densityEducation')
                 .attr('width', w)
@@ -743,9 +708,8 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .datum(densityEducation)
                 .call(densityPlotModule2);
 
-            console.log("scene 2");
         })
-        .on("leave",function(e){
+        .on("leave", function (e) {
             $(".densityEducation").remove();
         })
         .addTo(controller);
@@ -757,16 +721,14 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerHook: 0,
         offset: 0
     })
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text4", "textactive4") // add class toggle
         //.addIndicators({name:"text4"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive4").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text4").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -775,17 +737,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-2",
         duration: 700,
         triggerHook: 0,
-        offset:300})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 300
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text5", "textactive5") // add class toggle
         //.addIndicators({name:"text5"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive5").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text5").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -795,17 +756,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-2",
         duration: 500,
         triggerHook: 0,
-        offset:500})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 500
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text6", "textactive6") // add class toggle
         //.addIndicators({name:"text6"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive6").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text6").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -816,11 +776,11 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-3",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active3") // add class toggle
         //.addIndicators() // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
             //$(".densityWic").remove();
             $(".chart").remove();
             $(".plotBlack").remove();
@@ -828,16 +788,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var chart = d3.select(".left")
                 .append('svg')
                 .attr('class', 'chart')
-                .attr('width', w+70)
-                .attr('height', h+40);
+                .attr('width', w + 70)
+                .attr('height', h + 40);
 
-            var  dotsBlack=d3.select(".left").append("svg")
-                .attr("class","plotBlack")
+            var dotsBlack = d3.select(".left").append("svg")
+                .attr("class", "plotBlack")
                 .attr('width', w)
                 .attr('height', h);
 
-            var dotsWhite=d3.select('.left').append("svg")
-                .attr("class","plotWhite")
+            var dotsWhite = d3.select('.left').append("svg")
+                .attr("class", "plotWhite")
                 .attr('width', w)
                 .attr('height', h);
 
@@ -850,9 +810,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule3 = d3.densityPlot()
                 .variable0("Adult")
                 .variable1("Teen")
-                .width(w ).height(h/3*2 );
+                .width(w).height(h / 3 * 2);
 
-            var Teen=chart
+            var Teen = chart
                 .append('g')
                 .attr('class', 'densityTeen')
                 .attr('width', w)
@@ -862,7 +822,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .datum(densityTeen)
                 .call(densityPlotModule3);
         })
-        .on("leave",function(e){
+        .on("leave", function (e) {
             $(".densityTeen").remove();
         })
         .addTo(controller);
@@ -875,16 +835,14 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerHook: 0,
         offset: 0
     })
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text7", "textactive7") // add class toggle
         //.addIndicators({name:"text7"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive7").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text7").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -893,17 +851,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-3",
         duration: 700,
         triggerHook: 0,
-        offset:300})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 300
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text8", "textactive8") // add class toggle
         //.addIndicators({name:"text8"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive8").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text8").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -913,142 +870,18 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-3",
         duration: 500,
         triggerHook: 0,
-        offset:500})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 500
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text9", "textactive9") // add class toggle
         //.addIndicators({name:"text9"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive9").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text9").transition().duration(1000).attr("style", "opacity: 0;");
         });
-
-
-    ////draw WIC
-    //var scene4 = new ScrollMagic.Scene({
-    //    //specifies options for the scene
-    //    triggerElement: "#scene-4",
-    //    duration: 1000,
-    //    triggerHook: 0,
-    //    offset: 0})
-    //    .setClassToggle(".left", "active4") // add class toggle
-    //    //.addIndicators() // add indicators (requires plugin)
-    //    .on('enter', function (e)
-    //    {
-    //        $(".chart").remove();
-    //        $(".plotBlack").remove();
-    //        $(".plotWhite").remove();
-    //        var chart = d3.select(".left")
-    //            .append('svg')
-    //            .attr('class', 'chart')
-    //            .attr('width', w+70)
-    //            .attr('height', h+40);
-    //
-    //        var  dotsBlack=d3.select(".left").append("svg")
-    //            .attr("class","plotBlack")
-    //            .attr('width', w)
-    //            .attr('height', h);
-    //
-    //        var dotsWhite=d3.select('.left').append("svg")
-    //            .attr("class","plotWhite")
-    //            .attr('width', w)
-    //            .attr('height', h);
-    //
-    //        var drawDots_7 = d3.dotsDraw().target(66).race("Black Mother").color("steelblue");
-    //        var drawDots_8 = d3.dotsDraw().target(36).race("White Mother").color("#318041");
-    //
-    //        dotsBlack.append('g').attr('class', 'densityWic').call(drawDots_7);
-    //        dotsWhite.append('g').attr('class', 'densityWic').call(drawDots_8);
-    //
-    //        var densityPlotModule4 = d3.densityPlot()
-    //            .variable0("Do Not Receive WIC")
-    //            .variable1("Receive WIC")
-    //            .width(w ).height(h/3*2 );
-    //
-    //        var Wic=chart
-    //            .append('g')
-    //            .attr('class', 'densityWic')
-    //            .attr('width', w)
-    //            .attr('height', h)
-    //            .attr('transform', 'translate(' + margin.l + ',' + margin.t + ')');
-    //
-    //        Wic
-    //            .datum(densityWic)
-    //            .call(densityPlotModule4);
-    //    })
-    //    .on("leave",function(e){
-    //        $(".densityWic").remove();
-    //    })
-    //    .addTo(controller);
-    //
-    //var wicText1 = new ScrollMagic.Scene({
-    //    //specifies options for the scene
-    //    triggerElement: "#scene-4",
-    //    duration: 1000,
-    //    triggerHook: 0,
-    //    offset: 0
-    //})
-    //    //.setTween('#introactive1', 0.5, {opacity: 1})
-    //    .setClassToggle(".text10", "textactive10") // add class toggle
-    //    //.addIndicators({name:"text10"}) // add indicators (requires plugin)
-    //    .addTo(controller)
-    //    .on('enter', function (e) {
-    //        console.log("draw");
-    //        d3.select(".textactive10").transition().duration(1000).attr("style", "opacity: 1;");
-    //    })
-    //    .on("leave",function(e){
-    //        console.log("leave");
-    //        d3.select(".text10").transition().duration(1000).attr("style", "opacity: 0;");
-    //    });
-    //
-    //var wicText2 = new ScrollMagic.Scene({
-    //    //specifies options for the scene
-    //    triggerElement: "#scene-4",
-    //    duration: 700,
-    //    triggerHook: 0,
-    //    offset:300})
-    //    //.setTween('#introactive1', 0.5, {opacity: 1})
-    //    .setClassToggle(".text11", "textactive11") // add class toggle
-    //    //.addIndicators({name:"text11"}) // add indicators (requires plugin)
-    //    .addTo(controller)
-    //    .on('enter', function (e) {
-    //        console.log("draw");
-    //        d3.select(".textactive11").transition().duration(1000).attr("style", "opacity: 1;");
-    //    })
-    //    .on("leave",function(e){
-    //        console.log("leave");
-    //        d3.select(".text11").transition().duration(1000).attr("style", "opacity: 0;");
-    //    });
-    //
-    //
-    //var wicText3 = new ScrollMagic.Scene({
-    //    //specifies options for the scene
-    //    triggerElement: "#scene-4",
-    //    duration: 500,
-    //    triggerHook: 0,
-    //    offset:500})
-    //    //.setTween('#introactive1', 0.5, {opacity: 1})
-    //    .setClassToggle(".text12", "textactive12") // add class toggle
-    //    //.addIndicators({name:"text12"}) // add indicators (requires plugin)
-    //    .addTo(controller)
-    //    .on('enter', function (e) {
-    //        console.log("draw");
-    //        d3.select(".textactive12").transition().duration(1000).attr("style", "opacity: 1;");
-    //    })
-    //    .on("leave",function(e){
-    //        console.log("leave");
-    //        d3.select(".text12").transition().duration(1000).attr("style", "opacity: 0;");
-    //
-    //
-    //
-    //    });
-    //
-
-
 
 
     //draw Medicaid
@@ -1057,11 +890,11 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-5",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active5") // add class toggle
         //.addIndicators() // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
             //$(".densityPrecare").remove();
             $(".chart").remove();
             $(".plotBlack").remove();
@@ -1069,16 +902,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var chart = d3.select(".left")
                 .append('svg')
                 .attr('class', 'chart')
-                .attr('width', w+70)
-                .attr('height', h+40);
+                .attr('width', w + 70)
+                .attr('height', h + 40);
 
-            var  dotsBlack=d3.select(".left").append("svg")
-                .attr("class","plotBlack")
+            var dotsBlack = d3.select(".left").append("svg")
+                .attr("class", "plotBlack")
                 .attr('width', w)
                 .attr('height', h);
 
-            var dotsWhite=d3.select('.left').append("svg")
-                .attr("class","plotWhite")
+            var dotsWhite = d3.select('.left').append("svg")
+                .attr("class", "plotWhite")
                 .attr('width', w)
                 .attr('height', h);
 
@@ -1091,9 +924,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule5 = d3.densityPlot()
                 .variable0("Medicaid used")
                 .variable1("Medicaid not used")
-                .width(w ).height(h/3*2 );
+                .width(w).height(h / 3 * 2);
 
-            var Med=chart
+            var Med = chart
                 .append('g')
                 .attr('class', 'densityMed')
                 .attr('width', w)
@@ -1104,7 +937,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .datum(densityMed)
                 .call(densityPlotModule5);
         })
-        .on("leave",function(e){
+        .on("leave", function (e) {
             $(".densityMed").remove();
         })
         .addTo(controller);
@@ -1117,16 +950,14 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerHook: 0,
         offset: 0
     })
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text13", "textactive13") // add class toggle
         //.addIndicators({name:"text13"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive13").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text13").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -1135,17 +966,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-5",
         duration: 700,
         triggerHook: 0,
-        offset:300})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 300
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text14", "textactive14") // add class toggle
         //.addIndicators({name:"text14"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive14").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text14").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -1155,23 +985,20 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-5",
         duration: 500,
         triggerHook: 0,
-        offset:500})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 500
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text15", "textactive15") // add class toggle
         //.addIndicators({name:"text15"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            //console.log("draw");
             d3.select(".textactive15").transition().duration(1000).attr("style", "opacity: 1;");
 
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text15").transition().duration(1000).attr("style", "opacity: 0;");
 
         });
-
-
 
 
     //prenatal care
@@ -1180,11 +1007,11 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-6",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active6") // add class toggle
         //.addIndicators() // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".chart").remove();
             $(".plotBlack").remove();
@@ -1192,16 +1019,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var chart = d3.select(".left")
                 .append('svg')
                 .attr('class', 'chart')
-                .attr('width', w+70)
-                .attr('height', h+40);
+                .attr('width', w + 70)
+                .attr('height', h + 40);
 
-            var  dotsBlack=d3.select(".left").append("svg")
-                .attr("class","plotBlack")
+            var dotsBlack = d3.select(".left").append("svg")
+                .attr("class", "plotBlack")
                 .attr('width', w)
                 .attr('height', h);
 
-            var dotsWhite=d3.select('.left').append("svg")
-                .attr("class","plotWhite")
+            var dotsWhite = d3.select('.left').append("svg")
+                .attr("class", "plotWhite")
                 .attr('width', w)
                 .attr('height', h);
 
@@ -1214,9 +1041,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule6 = d3.densityPlot()
                 .variable0("Prenatal care")
                 .variable1("No prenatal care")
-                .width(w ).height(h/3*2 );
+                .width(w).height(h / 3 * 2);
 
-            var pre=chart
+            var pre = chart
                 .append('g')
                 .attr('class', 'densityPre')
                 .attr('width', w)
@@ -1227,7 +1054,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .datum(densityPre)
                 .call(densityPlotModule6);
         })
-        .on("leave",function(e){
+        .on("leave", function (e) {
             $(".densityPre").remove();
 
         })
@@ -1240,16 +1067,14 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerHook: 0,
         offset: 0
     })
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text16", "textactive16") // add class toggle
         //.addIndicators({name:"text16"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive16").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text16").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -1258,17 +1083,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-6",
         duration: 700,
         triggerHook: 0,
-        offset:300})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 300
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text17", "textactive17") // add class toggle
         //.addIndicators({name:"text17"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive17").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text17").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -1278,28 +1102,28 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-6",
         duration: 500,
         triggerHook: 0,
-        offset:500})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 500
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text18", "textactive18") // add class toggle
         //.addIndicators({name:"text18"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
 
-            console.log("draw");
-            $(".cycle").remove()
+            $(".cycle").remove();
             var chart = d3.select(".left")
                 .append('svg')
                 .attr('class', 'chart')
-                .attr('width', w+70)
-                .attr('height', h+40);
+                .attr('width', w + 70)
+                .attr('height', h + 40);
 
-            var  dotsBlack=d3.select(".left").append("svg")
-                .attr("class","plotBlack")
+            var dotsBlack = d3.select(".left").append("svg")
+                .attr("class", "plotBlack")
                 .attr('width', w)
                 .attr('height', h);
 
-            var dotsWhite=d3.select('.left').append("svg")
-                .attr("class","plotWhite")
+            var dotsWhite = d3.select('.left').append("svg")
+                .attr("class", "plotWhite")
                 .attr('width', w)
                 .attr('height', h);
 
@@ -1312,9 +1136,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule6 = d3.densityPlot()
                 .variable0("prenatal care")
                 .variable1("no prenatal care")
-                .width(w ).height(h/3*2 );
+                .width(w).height(h / 3 * 2);
 
-            var pre=chart
+            var pre = chart
                 .append('g')
                 .attr('class', 'densityPre')
                 .attr('width', w)
@@ -1328,14 +1152,11 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
 
             d3.select(".textactive18").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text18").transition().duration(1000).attr("style", "opacity: 0;");
 
 
         });
-
-
 
 
 //conclusion
@@ -1345,41 +1166,41 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-8",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active7") // add class toggle
         //.addIndicators({name:"arrow"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
-         $(".cycle").remove();
-         $(".chart").remove();
-         $(".plotBlack").remove();
-         $(".plotWhite").remove();
+            $(".cycle").remove();
+            $(".chart").remove();
+            $(".plotBlack").remove();
+            $(".plotWhite").remove();
 
-         globalDispatch = d3.dispatch('update','showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
-        'showSix','showSeven', 'showEight');
+            globalDispatch = d3.dispatch('update', 'showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
+                'showSix', 'showSeven', 'showEight');
 
-        var densityPlotModule = d3.cycleModuleSuper()
-        .width(w*1.4 ).height(h*3 );
+            var densityPlotModule = d3.cycleModuleSuper()
+                .width(w * 1.4).height(h * 3);
 
 
-        var bigPlot = d3.select(".left")
-        .attr('width', w)
-        .attr('height', h)
-        .attr('transform', 'translate(' +50+ ',' +80 + ')')
-        .append('g')
-        .attr('class', 'cycle')
-        .attr('width', w)
-        .attr('height', h)
-        .attr('transform', 'translate(' +50+ ',' +80 + ')');
+            var bigPlot = d3.select(".left")
+                .attr('width', w)
+                .attr('height', h)
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')')
+                .append('g')
+                .attr('class', 'cycle')
+                .attr('width', w)
+                .attr('height', h)
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')');
 
-        bigPlot
-        .call(densityPlotModule);
+            bigPlot
+                .call(densityPlotModule);
 
-        globalDispatch.showOne();  // this draws individual parts of the chart - here part 1
+            globalDispatch.showOne();  // this draws individual parts of the chart - here part 1
 
-            })
-            .addTo(controller);
+        })
+        .addTo(controller);
 
 
     var scene8text = new ScrollMagic.Scene({
@@ -1387,21 +1208,18 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-8",
         duration: 1000,
         triggerHook: 0,
-        offset:0})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 0
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text20", "textactive20") // add class toggle
         //.addIndicators({name:"text17"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive20").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text20").transition().duration(1000).attr("style", "opacity: 0;");
         });
-
-
 
 
     var scene9 = new ScrollMagic.Scene({
@@ -1409,32 +1227,32 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-9",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active8") // add class toggle
         //.addIndicators({name:"arrow"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".cycle").remove();
             //$(".plotBlack").remove();
             //$(".plotWhite").remove();
 
-            globalDispatch = d3.dispatch('update','showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
-                'showSix','showSeven', 'showEight');
+            globalDispatch = d3.dispatch('update', 'showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
+                'showSix', 'showSeven', 'showEight');
 
             var densityPlotModule = d3.cycleModuleSuper()
-                .width(w*1.4 ).height(h*3 );
+                .width(w * 1.4).height(h * 3);
 
 
             var bigPlot = d3.select(".left")
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')')
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')')
                 .append('g')
                 .attr('class', 'cycle')
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')');
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')');
 
             bigPlot
                 .call(densityPlotModule);
@@ -1456,21 +1274,18 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-9",
         duration: 1000,
         triggerHook: 0,
-        offset:0})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 0
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text21", "textactive21") // add class toggle
         //.addIndicators({name:"text21"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive21").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text21").transition().duration(1000).attr("style", "opacity: 0;");
         });
-
-
 
 
     var scene10 = new ScrollMagic.Scene({
@@ -1478,32 +1293,32 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-10",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active9") // add class toggle
         //.addIndicators({name:"arrow"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".cycle").remove();
             //$(".plotBlack").remove();
             //$(".plotWhite").remove();
 
-            globalDispatch = d3.dispatch('update','showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
-                'showSix','showSeven', 'showEight');
+            globalDispatch = d3.dispatch('update', 'showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
+                'showSix', 'showSeven', 'showEight');
 
             var densityPlotModule = d3.cycleModuleSuper()
-                .width(w*1.4 ).height(h*3 );
+                .width(w * 1.4).height(h * 3);
 
 
             var bigPlot = d3.select(".left")
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')')
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')')
                 .append('g')
                 .attr('class', 'cycle')
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')');
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')');
 
             bigPlot
                 .call(densityPlotModule);
@@ -1524,20 +1339,18 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-10",
         duration: 1000,
         triggerHook: 0,
-        offset:0})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 0
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text22", "textactive22") // add class toggle
         //.addIndicators({name:"text22"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive22").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text22").transition().duration(1000).attr("style", "opacity: 0;");
         });
-
 
 
     var scene11 = new ScrollMagic.Scene({
@@ -1545,32 +1358,32 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-11",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active10") // add class toggle
         //.addIndicators({name:"arrow"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".cycle").remove();
             //$(".plotBlack").remove();
             //$(".plotWhite").remove();
 
-            globalDispatch = d3.dispatch('update','showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
-                'showSix','showSeven', 'showEight');
+            globalDispatch = d3.dispatch('update', 'showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
+                'showSix', 'showSeven', 'showEight');
 
             var densityPlotModule = d3.cycleModuleSuper()
-                .width(w*1.4 ).height(h*3 );
+                .width(w * 1.4).height(h * 3);
 
 
             var bigPlot = d3.select(".left")
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')')
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')')
                 .append('g')
                 .attr('class', 'cycle')
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')');
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')');
 
             bigPlot
                 .call(densityPlotModule);
@@ -1591,17 +1404,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-11",
         duration: 1000,
         triggerHook: 0,
-        offset:0})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 0
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text23", "textactive23") // add class toggle
         //.addIndicators({name:"text23"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive23").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text23").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -1611,32 +1423,32 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-12",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active12") // add class toggle
         //.addIndicators({name:"arrow"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".cycle").remove();
             //$(".plotBlack").remove();
             //$(".plotWhite").remove();
 
-            globalDispatch = d3.dispatch('update','showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
-                'showSix','showSeven', 'showEight');
+            globalDispatch = d3.dispatch('update', 'showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
+                'showSix', 'showSeven', 'showEight');
 
             var densityPlotModule = d3.cycleModuleSuper()
-                .width(w*1.4 ).height(h*3 );
+                .width(w * 1.4).height(h * 3);
 
 
             var bigPlot = d3.select(".left")
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')')
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')')
                 .append('g')
                 .attr('class', 'cycle')
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')');
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')');
 
             bigPlot
                 .call(densityPlotModule);
@@ -1657,17 +1469,16 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-12",
         duration: 1000,
         triggerHook: 0,
-        offset:0})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 0
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text24", "textactive24") // add class toggle
         //.addIndicators({name:"text24"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive24").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text24").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
@@ -1677,32 +1488,32 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-13",
         duration: 1000,
         triggerHook: 0,
-        offset: 0})
+        offset: 0
+    })
         .setClassToggle(".left", "active13") // add class toggle
         //.addIndicators({name:"arrow"}) // add indicators (requires plugin)
-        .on('enter', function (e)
-        {
+        .on('enter', function (e) {
 
             $(".cycle").remove();
             //$(".plotBlack").remove();
             //$(".plotWhite").remove();
 
-            globalDispatch = d3.dispatch('update','showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
-                'showSix','showSeven', 'showEight');
+            globalDispatch = d3.dispatch('update', 'showOne', 'showTwo', 'showThree', 'showFour', 'showFive',
+                'showSix', 'showSeven', 'showEight');
 
             var densityPlotModule = d3.cycleModuleSuper()
-                .width(w*1.4 ).height(h*3 );
+                .width(w * 1.4).height(h * 3);
 
 
             var bigPlot = d3.select(".left")
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')')
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')')
                 .append('g')
                 .attr('class', 'cycle')
                 .attr('width', w)
                 .attr('height', h)
-                .attr('transform', 'translate(' +50+ ',' +80 + ')');
+                .attr('transform', 'translate(' + 50 + ',' + 80 + ')');
 
             bigPlot
                 .call(densityPlotModule);
@@ -1723,34 +1534,20 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
         triggerElement: "#scene-13",
         duration: 1000,
         triggerHook: 0,
-        offset:0})
-        //.setTween('#introactive1', 0.5, {opacity: 1})
+        offset: 0
+    })
+    //.setTween('#introactive1', 0.5, {opacity: 1})
         .setClassToggle(".text25", "textactive25") // add class toggle
         //.addIndicators({name:"text25"}) // add indicators (requires plugin)
         .addTo(controller)
         .on('enter', function (e) {
-            console.log("draw");
             d3.select(".textactive25").transition().duration(1000).attr("style", "opacity: 1;");
         })
-        .on("leave",function(e){
-            console.log("leave");
+        .on("leave", function (e) {
             d3.select(".text25").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
 
 function parse(d) {
     //estimate0 = +d.estimate0;

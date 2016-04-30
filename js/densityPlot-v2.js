@@ -153,12 +153,12 @@ d3.densityPlot = function(){
         if(!arguments.length) return w;
         w = _v;
         return this;
-    }
+    };
     exports.height = function(_z){
         if(!arguments.length) return h;
         h = _z;
         return this;
-    }
+    };
     //exports.timeRange = function(_r){
     //    if(!arguments.length) return timeRange;
     //    timeRange = _r;
@@ -180,34 +180,34 @@ d3.densityPlot = function(){
         if(!arguments.length) return variable0;
         variable0 = _b;
         return this;
-    }
+    };
     exports.variable1 = function(_d){
         //@param _b: d3.time.interval
         if(!arguments.length) return variable1;
         variable1 = _d;
         return this;
-    }
+    };
 
     exports.domainXMax = function(_d){
         //@param _b: d3.time.interval
         if(!arguments.length) return domainXMax;
         domainXMax = _d;
         return this;
-    }
+    };
 
     exports.domainXMin = function(_b){
         //@param _b: d3.time.interval
         if(!arguments.length) return domainXMin;
         domainXMin = _b;
         return this;
-    }
+    };
 
     exports.domainYMax = function(_d){
         //@param _b: d3.time.interval
         if(!arguments.length) return domainYMax;
         domainYMax = _d;
         return this;
-    }
+    };
 
     //exports.domainXMax = function(_d){
     //    //@param _b: d3.time.interval
@@ -216,4 +216,4 @@ d3.densityPlot = function(){
     //    return this;
     //}
     return exports;
-}
+};

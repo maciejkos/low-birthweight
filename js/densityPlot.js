@@ -249,7 +249,7 @@ d3.densityPlot = function () {
         if (!arguments.length) return variable1;
         variable1 = _d;
         return this;
-    }
+    };
 
     exports.domainXMax = function (_d) {
         if (!arguments.length) return domainXMax;

@@ -226,12 +226,12 @@ d3.cycleModuleSuper = function () {
         if (!arguments.length) return w;
         w = _v;
         return this;
-    }
+    };
     exports.height = function (_z) {
         if (!arguments.length) return h;
         h = _z;
         return this;
-    }
+    };
 
     return exports
 };

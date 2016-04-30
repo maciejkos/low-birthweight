@@ -126,29 +126,29 @@ d3.dotsDraw = function ()
         if(!arguments.length) return w;
         w = _v;
         return this;
-    }
+    };
     exports.height = function(_z){
         if(!arguments.length) return h;
         h = _z;
         return this;
-    }
+    };
     exports.target = function(_t)
     {
         if(!arguments.length) return target;
         target = _t;
         return this;
-    }
+    };
     exports.race = function(_r)
     {
         if(!arguments.length) return race;
         race = _r;
         return this;
-    }
+    };
     exports.describe = function(_c){
         if(!arguments.length) return describe;
         describe = _c;
         return this;
-    }
+    };
 
     return exports;
 };

@@ -251,7 +251,6 @@ d3.densityPlotWithUpdate = function () {
         scaleX.range([0, chartW]).domain([domainXMin, domainXMax]);
         scaleY.range([chartH, 0]).domain([0, domainYMax]);
 
-        console.log(nodes1);
         nodes1 = d3.select(".area1Update")
             .transition()
             .duration(500)
@@ -295,7 +294,6 @@ d3.densityPlotWithUpdate = function () {
         scaleX.range([0, chartW]).domain([domainXMin, domainXMax]);
         scaleY.range([chartH, 0]).domain([0, domainYMax]);
 
-        console.log(nodes1);
         nodes1 = d3.select(".area1Update")
             .transition()
             .duration(500)
