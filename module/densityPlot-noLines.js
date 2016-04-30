@@ -132,7 +132,7 @@ d3.densityPlotNoLines = function(){
             .attr("x", 15)
             .attr("y", 23)
             .attr("fill","red")
-            .attr("opacity",0.5)
+            .attr("opacity",0.7)
             .text(variable1);
 
         legend
@@ -140,10 +140,11 @@ d3.densityPlotNoLines = function(){
             //.attr("transform","translate(400,-10)");
 
         // description of the x axis
-        legend
+        plot_main
             .append("text")
-            .attr("x", chartW/10)
-            .attr("y", chartH*1.5)
+            .attr("text-anchor", "middle")
+            .attr("x", scaleX(5000))
+            .attr("y", chartH*1.7)
             .text("weight in grams")
             .style("font-size","6px");
 
@@ -162,8 +163,13 @@ d3.densityPlotNoLines = function(){
             .attr("text-anchor", "left")
             .text(Title);
 
+        axisX = d3.svg.axis()
+            .orient('bottom')
+            .scale(scaleX);
 
-
+        plot_main.append('g').attr('class', 'axis axis-x')
+            .attr('transform', 'translate(0,' + chartH + ')')
+            .call(axisX);
 
     }
 

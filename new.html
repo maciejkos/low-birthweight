@@ -11,270 +11,281 @@
 </head>
 <body>
 
-        <section class="intro one">
-            <h1>
-                <font color="#b0c4de" size="40"><strong>LOW BIRTH WEIGHT</strong></font>
-            </h1>
-        </section>
-
-
-
-        <div class="intro" id="because"></div>
-        <div class="intro" id="physical"></div>
-        <div class="intro" id="mental"></div>
-        <div class="intro" id="education"></div>
-        <div class="intro" id="social"></div>
-        <div class="intro" id="task"></div>
-
-
-        <div class="visBecause" style="opacity: 0;">
-            <h2><font color="#b0c4de" size="40"><strong>LOW BIRTH WEIGHT</strong></font> can cause:</h2>
-        </div>
-
-        <div class="vis1"  style="opacity: 0;">
-            <p><strong><font color="#b0c4de">Physical Health Problems</font></strong>
-                <br>
-                increased infant mortality, respiratory distress, heart disease, hypertension, diabetes, chronic lung disorders, and stunted growth.
-            </p>
-        </div>
-
-        <div class="vis2" style="opacity: 0;">
-            <p><strong><font color="#b0c4de">Mental Health and Cognition Problems</font></strong>
-                <br>
-                developmental issues, hyperactivity disorders, and lower IQ.
-            </p>
-        </div>
-
-        <div class="vis3" style="opacity: 0;">
-            <p> <strong><font color="#b0c4de">Learning Disability</font></strong>
-                <br>
-                lower school readiness, score lower on academic achievement tests, and are less likely to graduate from high school.</p>
-        </div>
-
-        <div class="vis4" style="opacity: 0;">
-            <p> <strong><font color="#b0c4de">Low Socioeconomic Status</font></strong>
-                <br>
-                low educational attainment, and may result in lower earnings. <br>These translate to being more reliant on welfare and having more limited access to health-care.
-            </p>
-        </div>
-
-
-        <!--<div class="transition"></div>-->
-        <section class="transition one">
-             <h2><font color="#b0c4de"><strong>OUR WORK</strong></font></h2>
-                <br><br><br><br><br><br><br><br>
-                <p>
-                    <!--With an idea to improve the situation caused by factors stated above, <br><br><br>-->
-                    We explored <font color="#b0c4de"><strong>over 2 million births given in the US in 2014</strong></font> using a dataset published by the <font color="#b0c4de"><strong><a href="http://www.nber.org/data/vital-statistics-natality-data.html">National Center for Health Statistics</a></strong></font>.
-                <br><br><br>
-                In our analysis we identified  <font color="#b0c4de"><strong>staggering</strong></font> differences in newborn weight, based on <font color="#b0c4de"><strong>race</strong></font>.
-                </p>
-        </section>
-        http://www.nber.org/data/vital-statistics-natality-data.html
-        <section class="transition two">
-        </section>
-
-
-
-
-        <div class="updateplot"></div>
-        <div class="update" id="one">1</div>
-        <div class="update" id="two">2</div>
-
-
-        <div class="updatetext1">
-            <p>Children of black mothers are on average 242 grams lighter than those of white mothers (3100 vs 3343 grams).</p>
-        </div>
-        <div class="updatetext2">
-            <p>There are nearly twice as many underweight children born to black mothers than to white mothers (12.52% vs 6.44%)</p>
-        </div>
-        <div class="updatetext3">
-
-            <p><br>In this project we explore why such an enormous racial gap exists.
-
-                <br><br>Based on existing research we identified the following set of variables potentially associated with newborn weight: <br>
-            <!--mother’s race, teen pregnancy, marital status, income, access to prenatal care, plurality (singleton, twins, triplets, etc.), body mass index, number of cigarettes smoked prior to pregnancy, and newborn sex.-->
-            <ul>
-                <li>mother’s race,</li>
-                <li>teen pregnancy,</li>
-                <li>marital status,</li>
-                <li>income,</li>
-                <li>access to prenatal care,</li>
-                <li>plurality (singleton, twins, triplets, etc.),</li>
-                <li>body mass index,</li>
-                <li>number of cigarettes smoked prior to pregnancy,</li>
-                <li>and newborn sex.</li>
-            </ul>
-            </p>
-            <p>
-                We used linear regression to estimate the impact of these variables of the weight of newborns.
-
-                <br><br>Results <strong><font color="black">confirmed the existence of racial gap </font> </strong> in newborn weight. <br>
-                For example, even after accounting for the above variables (income, marital status, etc.) there still is a <strong><font color="black">219 gram difference between black and white infants</font> </strong>.
-
-                <br><br>From now on, we will use values obtained using the regression instead of means. While they are smaller, they provide a more accurate description of the data.</p>
-        </div>
-
-
-
-
-        <div class="left"></div>
-
-        <!--small multiples-->
-        <div class="right" id="scene"></div>
-
-        <!--draw for each variable-->
-        <div class="right" id="scene-1"></div>
-        <div class="right" id="scene-2"></div>
-        <div class="right" id="scene-3"></div>
-        <!--<div class="right" id="scene-4"></div>-->
-        <div class="right" id="scene-5"></div>
-        <div class="right" id="scene-6"></div>
-
-        <!--draw for the ending-->
-        <div class="right" id="scene-8"></div>
-        <div class="right" id="scene-9"></div>
-        <div class="right" id="scene-10"></div>
-        <div class="right" id="scene-11"></div>
-        <div class="right" id="scene-12"></div>
-        <div class="right" id="scene-13"></div>
-
-
-
-
-
-
-
-        <!--text for each variables-->
-        <div class="smallMultipleText">
-            <p><font color="black">In all of the described factors,<br>
-            there is a larger proportion of black mothers than
-            white mothers in each of the disadvantageous categories listed below:
-            </font></p> </div>
-
-        <div class="text1">
-           <h3>Marital status plays a big role in determining newborn weight. <br>The reason behind it is
-               that married mothers simply have access to more resources and care during pregnancy.</h3>
-        </div>
-        <div class="text2">
-           <h4>Children of single mothers are 43.681 lighter than those of married mothers.</h4></div>
-        <div class="text3">
-           <h5>Data show that 77% of black mothers are single, while the same is true only for 35% of white mothers.</h5>
-        </div>
-
-
-
-        <div class="text4">
-           <h3>Having college education also influences newborn weight. <br>We conjecture that this due to more educated parents enjoying higher salaries.</h3>
-        </div>
-        <div class="text5">
-           <h4>Women without a college degree have children that are on average 19 grams lighter than mothers with one.</h4></div>
-        <div class="text6">
-           <h5>Once again, we observe black women being much more disadvantaged with 81% of
-               black mothers having no college degree vs. 57% of white mothers.</h5>
-       </div>
-
-
-       <div class="text7">
-           <h3>Similarly to having to college degree, being a teen mother can be a proxy for income.</h3>
-       </div>
-       <div class="text8">
-           <h4>Children born to teen mothers are 27 grams lighter than those born to women who are over 19 years old.</h4>
-       </div>
-       <div class="text9">
-           <h5>What we observe in the data is that 11% of black mothers are in their teens, while the same is true only for 6% of white mothers.</h5>
-       </div>
-
-
-       <div class="text10">
-            <h3>Surprisingly, access to such support programs as Women, Infants, and Children (WIC) is
-
-                correlated with low birth weight. <br>WIC clearly doesn’t decrease birth weight but being
-
-                only available to low-income mothers, it is a good indicator of being poor.</h3>
-       </div>
-        <div class="text11">
-            <h4>Mothers participating in WIC have 8.731 lighter babies than those who don’t.</h4>
-        </div>
-        <div class="text12">
-            <h5>Sadly, WIC is much more prevalent among black mothers – 60% of black mothers
-
-                participate in WIC while only 36% of white mothers do.</h5>
-        </div>
-
-
-
-        <div class="text13">
-            <h3>Just like WIC, participation in Medicare is a good proxy for low income.</h3>
-        </div>
-        <div class="text14">
-            <h4>Medicare recipients have 44.98 lighter babies than others.</h4>
-        </div>
-        <div class="text15">
-            <h5>As with WIC, utilization of this assistance program is much higher among black mothers
-
-                (79% vs. 37%).Taken together, the racial differences in the utilization of WIC and Medicaid suggest that
-
-                black mothers suffer from much lower income levels than their white counterparts.</h5>
-        </div>
-
-
-        <div class="text16">
-
-        </div>
-        <div class="text17">
-            <h4>Finally, no access to prenatal care is associated with babies being 10 grams lighter.</h4>
-        </div>
-        <div class="text18">
-            <h5>As before, we observe the grim pattern of more black women suffering from being overrepresented in this category. 3% of black mothers don’t have access to prenatal
-                care while the same is true only for 1% of white mothers.</h5>
-        </div>
-
-
-
-
-        <!--text for ending-->
-
-        <div class="text20">
-            <h7>To this day, the serious problem of low newborn weight continues to affect
-
-                disproportionally many black families.</h7>
-        </div>
-        <div class="text21">
-
-            <h7>As we demonstrated earlier,
-                <br>the proportion of low income mothers is nearly twice as
-                high among blacks as among whites.</h7>
-        </div>
-        <div class="text22">
-            <h7>Mothers with low income are more likely to give birth to low weight children.
-                <br>Later in life, those children suffer from poor health.</h7>
-        </div>
-        <div class="text23">
-            <h7>Furthermore,
-                <br>they are less likely to graduate from high school and achieve the same
-
-            levels of education as children born with normal weight.</h7>
-        </div>
-        <div class="text24">
-            <h7>As poor education and health problems can lead to less disposable income this closes
-
-                the loop.</h7>
-        </div>
-        <div class="text25">
-            <h7>We need to stop this vicious cycle of blameless, unwarranted, and unjustified suffering.
-
-                <br>Please consider donating to charities such as
-                <br><strong>National Black Child Development
-
-                Institute (http://www.nbcdi.org/)</strong>
-                <br>or one of many others that help disadvantaged children
-
-                <strong>(https://www.charitynavigator.org/index.cfm?keyword_list=children&amp;Submit2=Search&amp;b
-
-                ay=search.results)</strong>.</h7>
-        </div>
-
+<section class="intro one">
+    <h1>
+        <font color="#b0c4de" size="40"><strong>LOW BIRTH WEIGHT</strong></font>
+    </h1>
+</section>
+
+
+<div class="intro" id="because"></div>
+<div class="intro" id="physical"></div>
+<div class="intro" id="mental"></div>
+<div class="intro" id="education"></div>
+<div class="intro" id="social"></div>
+<div class="intro" id="task"></div>
+
+
+<div class="visBecause" style="opacity: 0;">
+    <h2><font color="#b0c4de" size="40"><strong>LOW BIRTH WEIGHT</strong></font> can cause:</h2>
+</div>
+
+<div class="vis1" style="opacity: 0;">
+    <p><strong><font color="#b0c4de">Physical Health Problems</font></strong>
+        <br>
+        increased infant mortality, respiratory distress, heart disease, hypertension, diabetes, chronic lung disorders,
+        and stunted growth.
+    </p>
+</div>
+
+<div class="vis2" style="opacity: 0;">
+    <p><strong><font color="#b0c4de">Mental Health and Cognition Problems</font></strong>
+        <br>
+        developmental issues, hyperactivity disorders, and lower IQ.
+    </p>
+</div>
+
+<div class="vis3" style="opacity: 0;">
+    <p><strong><font color="#b0c4de">Learning Disability</font></strong>
+        <br>
+        lower school readiness, score lower on academic achievement tests, and are less likely to graduate from high
+        school.</p>
+</div>
+
+<div class="vis4" style="opacity: 0;">
+    <p><strong><font color="#b0c4de">Low Socioeconomic Status</font></strong>
+        <br>
+        low educational attainment, and may result in lower earnings.
+    </p>
+</div>
+
+
+<!--<div class="transition"></div>-->
+<section class="transition one">
+    <h2><font color="#b0c4de"><strong>OUR WORK</strong></font></h2>
+    <br><br><br><br><br><br><br><br>
+    <p>
+        <!--With an idea to improve the situation caused by factors stated above, <br><br><br>-->
+        We explored <font color="#b0c4de"><strong>over 2 million births given in the US in 2014</strong></font> using a
+        dataset published by the <font color="#b0c4de"><strong><a
+            href="http://www.nber.org/data/vital-statistics-natality-data.html">National Center for Health
+        Statistics</a></strong></font>.
+        <br><br><br>
+        In our analysis we identified <font color="#b0c4de"><strong>staggering</strong></font> differences in newborn
+        weight, based on <font color="#b0c4de"><strong>race</strong></font>.
+    </p>
+</section>
+
+<section class="transition two">
+</section>
+
+
+<div class="updateplot"></div>
+<div class="update" id="one"></div>
+<div class="update" id="two"></div>
+
+
+<div class="updatetext1">
+    <p>Children of black mothers <br> are on average 242 grams lighter than those of white mothers (3100 vs 3343 grams).</p>
+</div>
+<div class="updatetext2">
+    <p>There are nearly twice as many underweight <br> children born to black mothers than to white mothers (12.52% vs
+        6.44%)</p>
+</div>
+<div class="updatetext3">
+
+    <p>In this project we explore why such an enormous racial gap exists.
+
+        <br><br>Based on existing research we identified the following set of variables potentially associated with
+        newborn weight: <br>
+        <!--mother’s race, teen pregnancy, marital status, income, access to prenatal care, plurality (singleton, twins, triplets, etc.), body mass index, number of cigarettes smoked prior to pregnancy, and newborn sex.-->
+    <ul>
+        <li>mother’s race,</li>
+        <li>teen pregnancy,</li>
+        <li>marital status,</li>
+        <li>income,</li>
+        <li>access to prenatal care,</li>
+        <li>plurality (singleton, twins, triplets, etc.),</li>
+        <li>body mass index,</li>
+        <li>number of cigarettes smoked prior to pregnancy,</li>
+        <li>and newborn sex.</li>
+    </ul>
+    </p>
+    <p>
+        We used linear regression to estimate the impact of these variables of the weight of newborns.
+
+        <br><br>Results <strong><font color="black">confirmed the existence of racial gap </font> </strong> in newborn
+        weight. <br><br>
+        For example, even after accounting for the above variables (income, marital status, etc.) there still is a
+        <strong><font color="black">219 gram difference between black and white infants</font> </strong>.
+
+        <br><br>From now on, we will use values obtained using the regression instead of means. While they are smaller,
+        they provide a more accurate description of the data.</p>
+</div>
+
+
+<div class="left"></div>
+
+<!--small multiples-->
+<div class="right" id="scene"></div>
+
+<!--draw for each variable-->
+<div class="right" id="scene-1"></div>
+<div class="right" id="scene-2"></div>
+<div class="right" id="scene-3"></div>
+<!--<div class="right" id="scene-4"></div>-->
+<div class="right" id="scene-5"></div>
+<div class="right" id="scene-6"></div>
+
+<!--draw for the ending-->
+<div class="right" id="scene-8"></div>
+<div class="right" id="scene-9"></div>
+<div class="right" id="scene-10"></div>
+<div class="right" id="scene-11"></div>
+<div class="right" id="scene-12"></div>
+<div class="right" id="scene-13"></div>
+
+
+<!--text for each variables-->
+<div class="smallMultipleText">
+    <p><font color="black">Variables showed below influence birth weight.<br>
+        <br>
+        There is a larger proportion of black mothers than
+        white mothers <br>in each of the disadvantageous groups.
+
+        We explore them in detail later.
+    </font></p></div>
+
+<div class="text1">
+    <br><br>
+    Marital status
+    <h3>Single mothers have access to fewer resources and care during pregnancy.</h3>
+</div>
+<div class="text2">
+    <h4>Children of single mothers are 44 grams lighter than those of married mothers.</h4></div>
+<div class="text3">
+    <h5>Data show that the proportion of single black mothers is over <b>2X higher</b> than of single white mothers.
+    </h5>
+    <!--<h5>Data show that 77% of black mothers are single, while the same is true only for 35% of white mothers.</h5>-->
+</div>
+
+
+<div class="text4">
+    <br><br>
+    College education <h3>Less educated mothers often enjoy lower salaries.</h3>
+</div>
+<div class="text5">
+    <h4>Women without a college degree have children that are on average 19 grams lighter than mothers with one.</h4>
+</div>
+<div class="text6">
+    <h5>Once again, we observe black women being much more disadvantaged with 81% of
+        black mothers having no college degree vs. 57% of white mothers.</h5>
+</div>
+
+
+<div class="text7">
+    <br><br>
+    Teen pregnancy
+    <h3>Being a teen mother also correlates with lower income.</h3>
+</div>
+<div class="text8">
+    <h4>Children born to teen mothers are 27 grams lighter than those born to women who are over 19 years old.</h4>
+</div>
+<div class="text9">
+    <h5>What we observe in the data is that 11% of black mothers are in their teens, while the same is true only for 6%
+        of white mothers.</h5>
+</div>
+
+
+<div class="text10">
+    <h3>Surprisingly, access to such support programs as Women, Infants, and Children (WIC) is
+
+        correlated with low birth weight. <br>WIC clearly doesn’t decrease birth weight but being
+
+        only available to low-income mothers, it is a good indicator of being poor.</h3>
+</div>
+<div class="text11">
+    <h4>Mothers participating in WIC have 8.731 lighter babies than those who don’t.</h4>
+</div>
+<div class="text12">
+    <h5>Sadly, WIC is much more prevalent among black mothers – 60% of black mothers
+
+        participate in WIC while only 36% of white mothers do.</h5>
+</div>
+
+
+<div class="text13">
+    <br><br>
+    Medicaid usage
+    <h3>Only low-income mothers are eligible for Medicaid.</h3>
+</div>
+<div class="text14">
+    <h4>Medicaid recipients have 45 grams lighter babies than others.</h4>
+</div>
+<div class="text15">
+    <h5>Utilization of this assistance program is <b>over 2X higher</b> among black mothers
+
+        (79% vs. 37%). Overall, our data suggest that
+
+        black mothers suffer from much lower income levels than their white counterparts.</h5>
+</div>
+
+
+<div class="text16">
+
+</div>
+<div class="text17">
+    <h4>Finally, no access to prenatal care is associated with babies being 10 grams lighter.</h4>
+</div>
+<div class="text18">
+    <h5>As before, we observe the grim pattern of more black women suffering from being overrepresented in this
+        category. The proportion of black mothers without access to prenatal
+        care is <b>3x higher</b> than of white mothers.</h5>
+</div>
+
+
+<!--text for ending-->
+
+<div class="text20">
+    <h7>To this day, the serious problem of low newborn weight continues to affect
+
+        disproportionally many black families.
+    </h7>
+</div>
+<div class="text21">
+
+    <h7>As we demonstrated earlier,
+        <br>the proportion of low income mothers is nearly 2X higher among blacks.
+    </h7>
+</div>
+<div class="text22">
+    <h7>Mothers with low income are more likely to give birth to low weight children.
+        <br>Later in life, those children suffer from poor health.
+    </h7>
+</div>
+<div class="text23">
+    <h7>Furthermore,
+        <br>they are less likely to graduate from high school and achieve the same
+
+        levels of education as children born with normal weight.
+    </h7>
+</div>
+<div class="text24">
+    <h7> Poor education and health problems can lead to less disposable income.
+        <br>This closes the loop.
+    </h7>
+</div>
+<div class="text25">
+    <h7>Please help us stop this vicious cycle of blameless, unwarranted, and unjustified suffering.
+        <br>
+        <br>Consider donating to charities such as
+        <br><strong> <a href="http://www.nbcdi.org"><font color="black"><u>Black Child Development
+            Institute</u></font></a></strong>
+        <br>or
+        <strong> <a
+                href="https://www.charitynavigator.org/index.cfm?keyword_list=children&amp;Submit2=Search&amp;bay=search.results"><font
+                color="black"><u>one of many others that help disadvantaged children</u></font></a>.</h7>
+</div>
 
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>

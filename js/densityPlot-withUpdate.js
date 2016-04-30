@@ -162,22 +162,26 @@ d3.densityPlotWithUpdate = function(){
             .attr("fill", "steelblue");
 
         legend
+            .attr("transform","translate(550,0)");
+
+        plot_main
             .append("text")
-            .attr("x", 170)
-            .attr("y", 390)
-            .text("Birthweight")
+            .attr("text-anchor", "left")
+            .attr("x", scaleX(5000))
+            .attr("y", chartH - chartH/20)
+            .text("weight")
             .style("font-size","7px");
 
-        legend
+        plot_main
             .append("text")
-            .attr("x", 170)
-            .attr("y", 400)
+            .attr("text-anchor", "left")
+            .attr("x", scaleX(5000))
+            .attr("y", chartH - chartH/40)
             .text("(Grams)")
             .style("font-size","7px");
 
 
-        legend
-            .attr("transform","translate(550,0)");
+
 
         axisX = d3.svg.axis()
             .orient('bottom')

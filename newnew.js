@@ -25,12 +25,7 @@ var dotsWhite=d3.select('.left').append("svg")
     .attr('height', h);
 
 
-
-
-
-
-
-//Openning page
+//Opening page
     var controllerIntro = new ScrollMagic.Controller();
 
 
@@ -51,7 +46,7 @@ var dotsWhite=d3.select('.left').append("svg")
             d3.select(".introactiveBecause").transition().duration(500).attr("style", "opacity: 1;");
         })
         .on("leave",function(e){
-            console.log("leave");
+            console.log("leave intro");
             d3.select(".visBecause").transition().duration(500).attr("style", "opacity: 0;");
         });
 
@@ -322,7 +317,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule1 = d3.densityPlotNoLines()
                 .variable0("Married")
                 .variable1("Single")
-                .Title("Single Mothers")
+                .Title("Marital status")
                 .width(w ).height(h/4 );
 
             //draw density plot
@@ -342,9 +337,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
 
 //education
             var densityPlotModule2 = d3.densityPlotNoLines()
-                .variable0("With College Degree")
-                .variable1("Without College Degree")
-                .Title("No College Degree")
+                .variable0("College degree")
+                .variable1("No college degree")
+                .Title("College education")
                 .width(w ).height(h/4 );
 
             var education=multiples
@@ -361,7 +356,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var densityPlotModule3 = d3.densityPlotNoLines()
                 .variable0("Adult")
                 .variable1("Teen")
-                .Title("Teen Pregnancy")
+                .Title("Teen pregnancy")
                 .width(w ).height(h/4 );
 
             var Teen=multiples
@@ -394,9 +389,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
 
 //medicaid
             var densityPlotModule5 = d3.densityPlotNoLines()
-                .variable0("Pay by Medicaid")
-                .variable1("Do Not Pay by Medicaid")
-                .Title("Pay by Medicaid")
+                .variable0("Medicaid used")
+                .variable1("Medicaid not used")
+                .Title("Medicaid usage")
                 .width(w ).height(h/4 );
 
             var Med=multiples
@@ -413,9 +408,9 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
 
 //prenatal
             var densityPlotModule6 = d3.densityPlotNoLines()
-                .variable0("No Prenatal Care")
-                .variable1("Prenatal Care")
-                .Title("Do not Receive Prenatal Care")
+                .variable0("Prenatal Care")
+                .variable1("No prenatal care")
+                .Title("Prenatal Care usage")
                 .width(w ).height(h/4 );
 
             var pre=multiples
@@ -457,8 +452,8 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var educationBars = d3.multiples()
                 .aHigh(81)
                 .bHigh(57)
-                .leftLabel("With College Degree")
-                .rightLabel("Without College Degree")
+                .leftLabel("College degree")
+                .rightLabel("No college degree")
                 .separator("|")
                 .width(w).height(h);
 
@@ -475,7 +470,7 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .aHigh(11)
                 .bHigh(6)
                 .leftLabel("Teen")
-                .rightLabel("None Teen")
+                .rightLabel("Adult")
                 .separator("|")
                 .width(w).height(h);
 
@@ -510,8 +505,8 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var medBars = d3.multiples()
                 .aHigh(79)
                 .bHigh(37)
-                .leftLabel("Pay by Medicaid")
-                .rightLabel("Do not Pay by Medicaid")
+                .leftLabel("Medicaid used")
+                .rightLabel("Medicaid not used")
                 .separator("|")
                 .width(w).height(h);
 
@@ -528,8 +523,8 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
             var preBars = d3.multiples()
                 .aHigh(3)
                 .bHigh(1)
-                .leftLabel("With no Prenatal Care")
-                .rightLabel("With Prenatal care")
+                .leftLabel("Prenatal care")
+                .rightLabel("No prenatal care")
                 .separator("|")
                 .width(w).height(h);
 
@@ -603,8 +598,8 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .attr('width', w)
                 .attr('height', h);
 
-            var drawDots_1 = d3.dotsDraw().target(77).race("Black Mothers are Single");
-            var drawDots_2 = d3.dotsDraw().target(35).race("White Mother are Single");
+            var drawDots_1 = d3.dotsDraw().target(77).race("of black mothers").describe(" are single");
+            var drawDots_2 = d3.dotsDraw().target(35).race("of white mothers").describe(" are single");
 
             var densityPlotModule1 = d3.densityPlot()
                 .variable0("Married")
@@ -727,15 +722,15 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .attr('width', w)
                 .attr('height', h);
 
-            var drawDots_3 = d3.dotsDraw().target(81).race("Black Mothers").describe(" do not have College Degree");
-            var drawDots_4 = d3.dotsDraw().target(57).race("White Mothers").describe(" do not have College Degree");
+            var drawDots_3 = d3.dotsDraw().target(81).race("of black mothers").describe(" do not have a college degree");
+            var drawDots_4 = d3.dotsDraw().target(57).race("of white mothers").describe(" do not have a college degree");
 
             dotsBlack.append('g').attr('class', 'densityEducation').call(drawDots_3);
             dotsWhite.append('g').attr('class', 'densityEducation').call(drawDots_4);
 
             var densityPlotModule2 = d3.densityPlot()
-                .variable0("With College Degree")
-                .variable1("Without College Degree")
+                .variable0("College degree")
+                .variable1("No college degree")
                 .width(w ).height(h*2/3 );
 
             var education=chart
@@ -846,8 +841,8 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .attr('width', w)
                 .attr('height', h);
 
-            var drawDots_5 = d3.dotsDraw().target(11).race("Black Mothers are Teen");
-            var drawDots_6 = d3.dotsDraw().target(6).race("White Mothers are Teen");
+            var drawDots_5 = d3.dotsDraw().target(11).race("of black mothers").describe(" are in their teens");
+            var drawDots_6 = d3.dotsDraw().target(6).race("of white mothers").describe(" are in their teens");
 
             dotsBlack.append('g').attr('class', 'densityTeen').call(drawDots_5);
             dotsWhite.append('g').attr('class', 'densityTeen').call(drawDots_6);
@@ -1087,15 +1082,15 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .attr('width', w)
                 .attr('height', h);
 
-            var drawDots_9 = d3.dotsDraw().target(79).race("Black Mother").describe("Pay by Medicaid");
-            var drawDots_10 = d3.dotsDraw().target(37).race("White Mother").describe("Pay by Medicaid");
+            var drawDots_9 = d3.dotsDraw().target(79).race(" of black mothers").describe(" use Medicaid");
+            var drawDots_10 = d3.dotsDraw().target(37).race("of white mothers").describe(" use Medicaid");
 
             dotsBlack.append('g').attr('class', 'densityMed').call(drawDots_9);
             dotsWhite.append('g').attr('class', 'densityMed').call(drawDots_10);
 
             var densityPlotModule5 = d3.densityPlot()
-                .variable0("Pay by Medicaid")
-                .variable1("Do Not Pay by Medicaid")
+                .variable0("Medicaid used")
+                .variable1("Medicaid not used")
                 .width(w ).height(h/3*2 );
 
             var Med=chart
@@ -1210,15 +1205,15 @@ function dataLoaded(err,densityBlack,densitySingle,densityEducation,densityTeen,
                 .attr('width', w)
                 .attr('height', h);
 
-            var drawDots_11 = d3.dotsDraw().target(3).race("Black Mothers").describe(" Do not Have Prenatal Care");
-            var drawDots_12 = d3.dotsDraw().target(1).race("White Mother").describe(" Do not Have Prenatal Care");
+            var drawDots_11 = d3.dotsDraw().target(3).race("of black mothers").describe(" don't have access to prenatal care");
+            var drawDots_12 = d3.dotsDraw().target(1).race("of white mothers").describe(" don't have access to prenatal care");
 
             dotsBlack.append('g').attr('class', 'densityPre').call(drawDots_11);
             dotsWhite.append('g').attr('class', 'densityPre').call(drawDots_12);
 
             var densityPlotModule6 = d3.densityPlot()
-                .variable0("With Prenatal Care")
-                .variable1("Without Prenatal Care")
+                .variable0("Prenatal care")
+                .variable1("No prenatal care")
                 .width(w ).height(h/3*2 );
 
             var pre=chart
