@@ -581,6 +581,7 @@ h7 {
     left: 0;
 }
 
+
 .textactive25 {
     width: 40%;
     height: 350px;
@@ -590,6 +591,7 @@ h7 {
     z-index: 9999;
 }
 
+}
 /*set density plot*/
 .chart {
     margin-left: 17%;

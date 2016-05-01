@@ -1547,6 +1547,7 @@ function dataLoaded(err, densityBlack, densitySingle, densityEducation, densityT
             d3.select(".text25").transition().duration(1000).attr("style", "opacity: 0;");
         });
 
+
 }
 
 function parse(d) {
